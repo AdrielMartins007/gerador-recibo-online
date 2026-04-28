@@ -1,22 +1,47 @@
 <?php 
 
-class Informacoes{
-    public $recebedor;
-    public $pagador;
-    public $id;
-    public $valor;
-
-    public function __construct($recebedor, $pagador, $id, $valor) {
-        $this->recebedor = $recebedor;
-        $this->pagador = $pagador;
-        $this->id = $id;
-        $this->valor = $valor;
-    }
-
-    public function mensagem(){
-        echo 'OS DADOS FORAM ENVIADOS COM SUCESSO!';
-    }
-
-}
+require_once 'Formulario.php';
 
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEU RECIBO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main>
+
+        <section id="titulo">
+            <h1>SEU RECIBO</h1>
+        </section>
+
+        <section id="formulario">
+            <div id="tituloForm">
+                <p>Preencha os campos com os dados.</p>
+            </div>
+
+            <div id="campo">
+                <input type="text" placeholder="Digite o Nome do Recebedor">
+                <input type="text" placeholder="Digite o Nome do Pagador">
+                <input type="Number" placeholder="Digite o CPF / CNPJ">
+                <input type="Number" placeholder="Insira o Valor R$">
+                <input type="date">
+            </div>
+
+            <div id="botao">
+                <button>Enviar</button>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>
