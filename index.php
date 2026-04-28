@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once 'Formulario.php';
 
@@ -16,7 +16,7 @@ require_once 'Formulario.php';
 
 <body>
 
-    <main>
+    <form method="POST">
 
         <section id="titulo">
             <h1>SEU RECIBO</h1>
@@ -28,19 +28,35 @@ require_once 'Formulario.php';
             </div>
 
             <div id="campo">
-                <input type="text" placeholder="Digite o Nome do Recebedor">
-                <input type="text" placeholder="Digite o Nome do Pagador">
-                <input type="Number" placeholder="Digite o CPF / CNPJ">
-                <input type="Number" placeholder="Insira o Valor R$">
-                <input type="date">
+                <input type="text" placeholder="Digite o Nome do Recebedor" name="recebedor" value="">
+                <input type="text" placeholder="Digite o Nome do Pagador" name="pagador" value="">
+                <input type="Number" placeholder="Digite o CPF / CNPJ" name="id" value="">
+                <input type="Number" placeholder="Insira o Valor R$" name="valor" value="">
+                <input type="date" name="data" value="">
             </div>
 
             <div id="botao">
-                <button>Enviar</button>
+                <button type="submit">Enviar</button>
             </div>
         </section>
 
-    </main>
+    </form>
+
+    <?php
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+        $user = new Formulario(
+            $_POST['recebedor'],
+            $_POST['pagador'],
+            $_POST['id'],
+            $_POST['valor']
+        );
+
+        $user->mensagem();
+    }
+
+    ?>
 
 </body>
 
